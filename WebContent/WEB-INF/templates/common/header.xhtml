@@ -3,9 +3,9 @@
       xmlns:colegioapp="http://xmlns.jcp.org/jsf/composite/colegioapp"> 
     
     <ui:composition>
-        <colegioapp:navbar label="Inicio" value="#">
-            <colegioapp:navitem label="Contacto" value="#"/>
-            <colegioapp:navitem label="Nosotros" value="#"/>            
+        <colegioapp:navbar label="Inicio" value="#{request.contextPath}/login.xhtml" class="ui-widget-header">
+            <colegioapp:navitem label="Contacto" value="#{request.contextPath}/public/pages/contactUs.xhtml"/>
+            <colegioapp:navitem label="Nosotros" value="#{request.contextPath}/public/pages/about.xhtml"/>            
         </colegioapp:navbar>
 	
         <div class="page-header">
