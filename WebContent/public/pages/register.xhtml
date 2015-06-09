@@ -10,7 +10,7 @@
     <ui:define name="content">
         
         <h:form id="registerUserForm" styleClass="form-horizontal form-center">  
-            <h3>Registro</h3>
+            <h3>Registro de Alumnos</h3>
             
             <h:outputText id="informationMessage" 
                          value="#{userAddBacking.infoMessage}" 
@@ -19,44 +19,76 @@
            </h:outputText>
             
             <div class="form-group">
-                <h:outputLabel value="Login Name" for="loginName"/>
+                <h:outputLabel value="Nombres: " for="nombre"/>
                 
-                <h:inputText id="loginName" value="#{newUser.userId}" 
+                <h:inputText id="nombre" value="#{newUser.nombre}" 
                              class="form-control" required="true">
-                    <f:passThroughAttribute name="placeHolder" value="Login Name"/>
+                    <f:passThroughAttribute name="placeHolder" value="Nombres"/>
                 </h:inputText>   
-            </div>             
+            </div>
             
             <div class="form-group">
-                <h:outputLabel value="Password" for="password"/>
-                <h:inputSecret id="password" value="#{newUser.password}" 
-                               class="form-control" required="true">
-                </h:inputSecret>                   
-            </div>    
-            
-            <div class="form-group">
-                <h:outputLabel value="Confirm password" for="password2"/>
-                <h:inputSecret id="password2" value="#{newUser.password2}" 
-                               class="form-control" required="true">
-                </h:inputSecret>                   
-            </div>            
-            
-            <div class="form-group">
-                <h:outputLabel value="First Name" for="fname"/>
+                <h:outputLabel value="Apellidos: " for="apellido"/>
                 
-                <h:inputText id="fname" value="#{newUser.firstName}" 
+                <h:inputText id="apellido" value="#{newUser.apellido}" 
                              class="form-control" required="true">
-                    <f:passThroughAttribute name="placeHolder" value="First Name"/>
+                    <f:passThroughAttribute name="placeHolder" value="Apellidos: "/>
                 </h:inputText>   
-            </div>     
+            </div>
             
             <div class="form-group">
-                <h:outputLabel value="Last Name" for="lname"/>
-                <h:inputText id="lname" value="#{newUser.lastName}" 
+                <h:outputLabel value="DNI: " for="dni"/>
+                
+                <h:inputText id="dni" value="#{newUser.dni}" 
                              class="form-control" required="true">
-                    <f:passThroughAttribute name="placeHolder" value="Last Name"/>
-                </h:inputText>                   
-            </div>            
+                    <f:passThroughAttribute name="placeHolder" value="DNI"/>
+                </h:inputText>   
+            </div>
+            
+            <div class="form-group">
+                <h:outputLabel value="Correo: " for="correo"/>
+                
+                <h:inputText id="correo" value="#{newUser.correo}" 
+                             class="form-control" required="true">
+                    <f:passThroughAttribute name="placeHolder" value="Correo"/>
+                </h:inputText>   
+            </div>
+            
+            <div class="form-group">
+                <h:outputLabel value="Estado: " for="estado"/>
+                
+                <h:inputText id="estado" value="#{newUser.estado}" 
+                             class="form-control" required="true">
+                    <f:passThroughAttribute name="placeHolder" value="Estado"/>
+                </h:inputText>   
+            </div>
+            
+            <div class="form-group">
+                <h:outputLabel value="Fecha Nacimiento: " for="fecha"/>
+                
+                <h:inputText id="fecha" value="#{newUser.fecha}" 
+                             class="form-control" required="true">
+                    <f:passThroughAttribute name="placeHolder" value="Fecha Nacimiento"/>
+                </h:inputText>   
+            </div>                        
+            
+            <div class="form-group">
+                <h:outputLabel value="Foto: " for="foto"/>
+                
+                <h:inputText id="foto" value="#{newUser.foto}" 
+                             class="form-control" required="true">
+                    <f:passThroughAttribute name="placeHolder" value="URL://"/>
+                </h:inputText>   
+            </div>
+            
+            <div class="form-group">
+                <h:outputLabel value="Apoderado: " for="apoderado"/>
+                
+                <h:inputText id="apoderado" value="#{newUser.apoderado}" 
+                             class="form-control" required="true">
+                    <f:passThroughAttribute name="placeHolder" value="Apoderado"/>
+                </h:inputText>   
+            </div>
             
             <br/>
             <h:commandButton value="Register User" class="btn" action ="#{userAddBacking.registerUser}">
