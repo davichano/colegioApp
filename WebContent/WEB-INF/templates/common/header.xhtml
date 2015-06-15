@@ -3,13 +3,69 @@
       xmlns:colegioapp="http://xmlns.jcp.org/jsf/composite/colegioapp"> 
     
     <ui:composition>
-        <colegioapp:navbar label="Inicio" value="#{request.contextPath}/login.xhtml" class="ui-widget-header">
-            <colegioapp:navitem label="Contacto" value="#{request.contextPath}/public/pages/contactUs.xhtml"/>
-            <colegioapp:navitem label="Nosotros" value="#{request.contextPath}/public/pages/about.xhtml"/>            
-        </colegioapp:navbar>
-	
-        <div class="page-header">
-            <h1><ui:insert name="headerText">Bienvenidos a su colegio 2.0</ui:insert></h1>
-        </div>
+    <header class="header fixed clearfix navbar navbar-fixed-top">
+    
+    <div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="header-left clearfix">
+							<div class="logo smooth-scroll">
+								<a href="#banner"><img id="logo" src="#{request.contextPath}/images/logo.png" alt="Colegio 2.0"></img></a>
+							</div>
+							<div class="site-name-and-slogan smooth-scroll">
+								<div class="site-name"><a href="#banner">Colegio 2.0</a></div>
+								<div class="site-slogan">Un nuevo modelo de educación</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="col-md-8">
+
+						
+						<div class="header-right clearfix">
+
+							
+							<div class="main-navigation animated">
+
+							
+								<nav class="navbar navbar-default" role="navigation">
+									<div class="container-fluid">
+
+									
+										<div class="navbar-header">
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+												<span class="sr-only">Toggle navigation</span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+											</button>
+										</div>
+
+									
+										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+											<ul class="nav navbar-nav navbar-right">
+												<li class="active"><a href="#banner">Inicio</a></li>
+												<li><a href="#about">Nosotros</a></li>
+												<li><a href="#colegioapp">App</a></li>
+												<li><a href="#contact">Contacto</a></li>
+											</ul>
+										</div>
+
+									</div>
+								</nav>
+								
+
+							</div>
+						
+
+						</div>
+						
+
+					</div>
+				</div>
+			</div>
+
+       </header>
     </ui:composition>
 </html>

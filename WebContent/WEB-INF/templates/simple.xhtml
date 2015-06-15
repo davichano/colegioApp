@@ -10,16 +10,28 @@
     <ui:include src="common/bootstrapCSS.xhtml"/>  
 </h:head>
 
-<h:body>
-    <div class="container">
+<h:body class="no-trans">
+   
+    <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
         <ui:insert name="header">
             <ui:include src="common/header.xhtml"/>
         </ui:insert>
-
-        <ui:insert name="content"></ui:insert>
-        
+        <ui:insert name="banner">
+       	  <ui:include src="common/baner.xhtml"/>
+        </ui:insert>
+        <ui:insert name="about">
+       	  <ui:include src="common/aboutUs.xhtml"/>
+        </ui:insert>
+        <div id="colegioapp">
+         <ui:insert name="content"></ui:insert>
+        </div>
+       <div id="contact">
+         <ui:insert name="contact">
+      	   <ui:include src="common/contacto.xhtml"/>
+         </ui:insert>
+        </div>
         <ui:insert name="footer"></ui:insert>
-    </div>
+    
 
     <ui:include src="common/bootstrapJS.xhtml"/>
 </h:body>

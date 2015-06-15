@@ -2,38 +2,49 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
-<f:view contentType="text/html">
-    <ui:insert name="metadata"/>
-    <h:head>
-        <title><ui:insert name="title">Bienvenidos a Colegio App</ui:insert></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-        <ui:include src="common/bootstrapCSS.xhtml"/>
-    </h:head>
+<h:head>
+    <title><ui:insert name="title">Bienvenidos a Colegio 2.0 App</ui:insert></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <ui:include src="common/bootstrapCSS.xhtml"/>  
+</h:head>
 
-    <h:body>
-        <div class="container">
-            <ui:insert name="header">
-                <ui:include src="common/header.xhtml"/>
-            </ui:insert>
-
-            <div class="row-fluid">
-               <div class="span3">  
-                   <ui:insert name="menu"/>
-               </div>
-
-                <div class="span9">  
-                    <ui:insert name="content"/>
-                </div>
-             </div>
-
-            <ui:insert name="footer"></ui:insert>
+<h:body class="no-trans">
+   
+    <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+        <ui:insert name="header">
+            <ui:include src="common/header.xhtml"/>
+        </ui:insert>
+        <ui:insert name="banner">
+       	  <ui:include src="common/baner.xhtml"/>
+        </ui:insert>
+        <ui:insert name="about">
+       	  <ui:include src="common/aboutUs.xhtml"/>
+        </ui:insert>
+        <div id="colegioapp">
+             
+             <div class="container">
+             <div class="row">
+							<div class="col-md-4">
+								<ui:insert name="menu"/>
+								<div class="space"></div>
+							</div>
+							<div class="col-md-8">
+								<ui:insert name="content"/>
+							</div>
+						</div>
+			</div>
+             
         </div>
+        <div id="contact">
+         <ui:insert name="contact">
+      	   <ui:include src="common/contacto.xhtml"/>
+         </ui:insert>
+        </div>
+        <ui:insert name="footer"></ui:insert>
+    
 
-        <ui:include src="common/bootstrapJS.xhtml"/>
-    </h:body>
-</f:view>
+    <ui:include src="common/bootstrapJS.xhtml"/>
+</h:body>
 </html>
