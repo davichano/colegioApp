@@ -87,7 +87,13 @@
     </security-role>  
     <security-role>
         <role-name>appAdmin</role-name>
-    </security-role>  
+    </security-role>
+    <security-role>
+        <role-name>appAlumno</role-name>
+    </security-role>
+    <security-role>
+        <role-name>appApoderado</role-name>
+    </security-role>
   <welcome-file-list>
     <welcome-file>protected/pages/bookSearch.xhtml</welcome-file>
   </welcome-file-list>
