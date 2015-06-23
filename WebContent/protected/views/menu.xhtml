@@ -13,28 +13,28 @@
         <ul class="nav nav-list">
            <li class="nav-header">Bienvenido #{request.userPrincipal.name}</li>
            <li class="#{currentPage == '/protected/pages/bookSearch.xhtml'?'active':''}">
-               <a href="#{request.contextPath}/protected/pages/bookSearch.xhtml#colegioapp">Buscar Libros</a>
+               <a href="#{request.contextPath}/protected/pages/bookSearch.xhtml#colegioapp">Buscar Alumno</a>
            </li>
            
            <li class="#{currentPage == '/protected/pages/bookRequests.xhtml?status=1'?'active':''}">
-               <a href="#{request.contextPath}/protected/pages/bookRequests.xhtml?status=1#colegioapp">Ver Solicitudes Pendientes</a>
+               <a href="#{request.contextPath}/protected/pages/bookRequests.xhtml?status=1#colegioapp">Ingresar Notas</a>
            </li> 
            
            <li class="#{currentPage == '/protected/pages/bookRequests.xhtml?status=3'?'active':''}">
-               <a href="#{request.contextPath}/protected/pages/bookRequests.xhtml?status=3#colegioapp">Ver Solicitudes Aprobadas</a>
+               <a href="#{request.contextPath}/protected/pages/bookRequests.xhtml?status=3#colegioapp">Ver Pagos</a>
            </li> 
            
            <li class="#{currentPage == '/protected/pages/bookRequests.xhtml?status=2'?'active':''}">
-               <a href="#{request.contextPath}/protected/pages/bookRequests.xhtml?status=2#colegioapp">Ver Solicitudes Rechazadas</a>
+               <a href="#{request.contextPath}/protected/pages/bookRequests.xhtml?status=2#colegioapp">Ver Personal</a>
            </li>     
 
            <c:if test="#{request.isUserInRole('appAdmin')}">
                <li class="#{currentPage == '/protected/pages/admin/bookAdd.xhtml'?'active':''}">
-                   <a href="#{request.contextPath}/protected/pages/admin/bookAdd.xhtml#colegioapp">Agregar un Libro</a>
+                   <a href="#{request.contextPath}/protected/pages/admin/bookAdd.xhtml#colegioapp">Agregar Alumno</a>
                </li>                
                
                <li class="#{currentPage == '/protected/pages/admin/userList.xhtml'?'active':''}">
-                   <a href="#{request.contextPath}/protected/pages/admin/userList.xhtml#colegioapp">Visualizar Usuarios</a>
+                   <a href="#{request.contextPath}/protected/pages/admin/userList.xhtml#colegioapp">Ver Usuarios</a>
                </li> 
            </c:if>
 

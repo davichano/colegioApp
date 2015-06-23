@@ -12,15 +12,15 @@
     </ui:define>    
     
     <ui:define name="content">
-        <h3>Search for books</h3>
+        <h3>Buscar Alumnos por Nombre</h3>
         <h:form id="searchForm" class="form-search">  
 
-           <h:outputText value="Enter book title: "/>
+           <h:outputText value="Ingresa Nombre del Alumno: "/>
            <h:inputText id="searchTitle" class="search-query input-medium" 
                         value="#{bookSearchBacking.searchTitle}" 
                         required="true"/>&#160;
 
-           <h:commandButton value="Search for book" class="btn" action="#{bookSearchBacking.retrieveBookList}">
+           <h:commandButton value="Buscar alumno" class="btn" action="#{bookSearchBacking.retrieveBookList}">
                <f:ajax execute="searchTitle" render="results messages"/>
            </h:commandButton>
            
