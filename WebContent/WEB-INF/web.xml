@@ -48,6 +48,46 @@
     </error-page>        
     
     
+ <security-constraint>
+        <display-name>securityConstraint1</display-name>
+        <web-resource-collection>
+            <web-resource-name>resources</web-resource-name>
+            <description/>
+            <url-pattern>/protected/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>appAlumno</role-name>
+            <role-name>appAdmin</role-name>
+            <role-name>appApoderado</role-name>
+            <role-name>appProfesor</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>securityConstraint2</display-name>
+        <web-resource-collection>
+            <web-resource-name>resources</web-resource-name>
+            <description/>
+            <url-pattern>/protected/pages/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>appAdmin</role-name>
+        </auth-constraint>
+    </security-constraint>    
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>AppRealm</realm-name>
+        <form-login-config>
+            <form-login-page>/login.xhtml</form-login-page>
+            <form-error-page>/public/pages/forbidden.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>  
+    
+    <security-role>
+        <role-name>appUser</role-name>
+    </security-role>  
+    <security-role>
+        <role-name>appAdmin</role-name>
+    </security-role>  
   <welcome-file-list>
     <welcome-file>protected/pages/bookSearch.xhtml</welcome-file>
   </welcome-file-list>

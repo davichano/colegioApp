@@ -9,11 +9,11 @@
 <ui:composition template="/WEB-INF/templates/main.xhtml"> 
     <ui:define name="metadata">
         <f:metadata> 
-            <f:viewParam name="status" value="#{bookRequestsBacking.status}">
+            <f:viewParam name="status" value="#{LlamarAlumnoBacking.status}">
                 <f:validateLongRange minimum="1" maximum="3"/>
             </f:viewParam>
             
-            <f:event listener="#{bookRequestsBacking.retrieveBookRequests}" type="preRenderView"/>            
+            <f:event listener="#{LlamarAlumnoBacking.retrieveLlamarAlumno}" type="preRenderView"/>            
         </f:metadata>
     </ui:define>
     
@@ -23,39 +23,39 @@
     
     <ui:define name="content">
         <h3>
-            <c:if test="#{bookRequestsBacking.status eq 1}">
+            <c:if test="#{LlamarAlumnoBacking.status eq 1}">
                 Solicitudes Pendientes
             </c:if>
-            <c:if test="#{bookRequestsBacking.status eq 2}">
+            <c:if test="#{LlamarAlumnoBacking.status eq 2}">
                 Solicitudes Rechazadas
             </c:if>
-            <c:if test="#{bookRequestsBacking.status eq 3}">
+            <c:if test="#{LlamarAlumnoBacking.status eq 3}">
                 Solicitudes Aprobadas
             </c:if>            
         </h3>        
-        <h:form id="bookRequestForm">
+        <h:form id="LlamarAlumnoForm">
             <h:panelGroup id="results" class="table-responsive">
                 <h:outputText id="informationMessage" 
-                              value="#{bookRequestsBacking.infoMessage}" 
-                              rendered="#{bookRequestsBacking.infoMessage ne null}"
+                              value="#{LlamarAlumnoBacking.infoMessage}" 
+                              rendered="#{LlamarAlumnoBacking.infoMessage ne null}"
                               class="informationMessage"/>
 
-                <h:dataTable value="#{bookRequestsBacking.bookRequestList}" 
-                             var="bookRequest" class="table" 
-                             rendered="#{not empty bookRequestsBacking.bookRequestList}">
+                <h:dataTable value="#{LlamarAlumnoBacking.LlamarAlumnoList}" 
+                             var="LlamarAlumno" class="table" 
+                             rendered="#{not empty LlamarAlumnoBacking.LlamarAlumnoList}">
 
                     <h:column>
                         <f:facet name="header">
                             Book Title
                         </f:facet>
-                        #{bookRequest.book.title}
+                        #{LlamarAlumno.book.title}
                     </h:column>
-                    <c:if test="#{bookRequestsBacking.status ne 1}">
+                    <c:if test="#{LlamarAlumnoBacking.status ne 1}">
                         <h:column>
                             <f:facet name="header">
                                 Response Time
                             </f:facet>
-                            <h:outputText value="#{bookRequest.responseTime}">
+                            <h:outputText value="#{LlamarAlumno.responseTime}">
                                 <f:converter converterId="applib.TimeConverter"/>
                             </h:outputText>
                         </h:column>
@@ -64,7 +64,7 @@
                         <f:facet name="header">
                             Request Time
                         </f:facet>
-                        <h:outputText value="#{bookRequest.requestTime}">
+                        <h:outputText value="#{LlamarAlumno.requestTime}">
                             <f:converter converterId="applib.TimeConverter"/>
                         </h:outputText>
                     </h:column> 
@@ -74,7 +74,7 @@
                             <f:facet name="header">
                                 Request Owner
                             </f:facet>
-                            #{bookRequest.appuser.userId}
+                            #{LlamarAlumno.appuser.userId}
                         </h:column>
                     </c:if>
 
@@ -84,30 +84,30 @@
                         </f:facet>
 
                         <c:if test="#{request.isUserInRole('appUser')}">
-                            <c:if test="#{bookRequestsBacking.status eq 1 or bookRequestsBacking.status eq 2}">
+                            <c:if test="#{LlamarAlumnoBacking.status eq 1 or LlamarAlumnoBacking.status eq 2}">
                                 NA
                             </c:if>
-                            <c:if test="#{bookRequestsBacking.status eq 3}">
-                                <h:commandLink value="Download book" action="#{bookRequestsBacking.downloadBook}">
-                                    <f:setPropertyActionListener target="#{bookRequestsBacking.selectedBookRequest}" value="#{bookRequest}" />
+                            <c:if test="#{LlamarAlumnoBacking.status eq 3}">
+                                <h:commandLink value="Download book" action="#{LlamarAlumnoBacking.downloadBook}">
+                                    <f:setPropertyActionListener target="#{LlamarAlumnoBacking.selectedLlamarAlumno}" value="#{LlamarAlumno}" />
                                 </h:commandLink>
                             </c:if>                        
                         </c:if>
 
                         <c:if test="#{request.isUserInRole('appAdmin')}">
-                            <h:commandLink value="Download book" action="#{bookRequestsBacking.downloadBook}">
-                                <f:setPropertyActionListener target="#{bookRequestsBacking.selectedBookRequest}" value="#{bookRequest}" />
+                            <h:commandLink value="Download book" action="#{LlamarAlumnoBacking.downloadBook}">
+                                <f:setPropertyActionListener target="#{LlamarAlumnoBacking.selectedLlamarAlumno}" value="#{LlamarAlumno}" />
                             </h:commandLink>
-                            <c:if test="#{bookRequestsBacking.status eq 1}">
+                            <c:if test="#{LlamarAlumnoBacking.status eq 1}">
                                 <br/>
-                                <h:commandLink value="Approve request" action="#{bookRequestsBacking.approveRequest}">
-                                    <f:setPropertyActionListener target="#{bookRequestsBacking.selectedBookRequest}" value="#{bookRequest}" />
-                                    <f:ajax render=":bookRequestForm:results :bookRequestForm:messages" />
+                                <h:commandLink value="Approve request" action="#{LlamarAlumnoBacking.approveRequest}">
+                                    <f:setPropertyActionListener target="#{LlamarAlumnoBacking.selectedLlamarAlumno}" value="#{LlamarAlumno}" />
+                                    <f:ajax render=":LlamarAlumnoForm:results :LlamarAlumnoForm:messages" />
                                 </h:commandLink>
                                 <br/>
-                                <h:commandLink value="Reject request" action="#{bookRequestsBacking.rejectRequest}">
-                                    <f:setPropertyActionListener target="#{bookRequestsBacking.selectedBookRequest}" value="#{bookRequest}" />
-                                    <f:ajax render=":bookRequestForm:results :bookRequestForm:messages" />
+                                <h:commandLink value="Reject request" action="#{LlamarAlumnoBacking.rejectRequest}">
+                                    <f:setPropertyActionListener target="#{LlamarAlumnoBacking.selectedLlamarAlumno}" value="#{LlamarAlumno}" />
+                                    <f:ajax render=":LlamarAlumnoForm:results :LlamarAlumnoForm:messages" />
                                 </h:commandLink>                            
                             </c:if>                        
                         </c:if>

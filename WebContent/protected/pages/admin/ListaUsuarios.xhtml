@@ -19,7 +19,7 @@
     </ui:define>    
     
     <ui:define name="content">
-        <h3>All Users</h3>        
+        <h3>Todos los Usuarios</h3>        
         <h:form id="userSearchForm">
             <h:panelGroup id="results" class="table-responsive">
                 <h:outputText id="informationMessage" 
@@ -39,20 +39,20 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            First Name
+                            Nombre
                         </f:facet>
                         #{user.firstName}
                     </h:column>  
                     <h:column>
                         <f:facet name="header">
-                            Last Name
+                            Apellido
                         </f:facet>
                         #{user.lastName}
                     </h:column> 
                     
                    <h:column>
                        <f:facet name="header">
-                           Actions
+                           Acciones
                        </f:facet>
 
                        <h:commandLink value="Delete" action="#{userSearchBacking.deleteUser}">
